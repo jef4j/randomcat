@@ -33,8 +33,7 @@ export class CardsComponent implements OnInit {
     );
   }
   onClick(){
-    console.log(this.id)
-    this.router.navigate(['/detalles', this.id]);
+    this.router.navigate(['/detalles', this.texto]);
   }
 
 

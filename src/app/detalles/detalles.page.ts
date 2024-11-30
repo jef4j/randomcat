@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detalles',
@@ -10,7 +11,8 @@ export class DetallesPage implements OnInit {
   noteName: string = '';
   noteText: string = '';
 
-  constructor() {}
+  constructor(private activatedRoute: ActivatedRoute) {}
+  factText: string = '';
 
   addNote() {
     if (this.noteName && this.noteText) {
@@ -23,6 +25,11 @@ export class DetallesPage implements OnInit {
     }
   }
   ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+   
+      this.factText = decodeURIComponent(params['text']); 
+      console.log(this.factText); 
+    });
   }
 
 }
