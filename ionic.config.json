@@ -1,0 +1,7 @@
+{
+  "name": "randomcat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
