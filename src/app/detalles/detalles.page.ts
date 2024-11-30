@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalles',
@@ -11,25 +11,27 @@ export class DetallesPage implements OnInit {
   noteName: string = '';
   noteText: string = '';
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
   factText: string = '';
 
-  addNote() {
-    if (this.noteName && this.noteText) {
-      console.log('Note Added:', this.noteName, this.noteText);
-    
-      this.noteName = '';
-      this.noteText = '';
-    } else {
-      console.log('Please fill in both fields');
-    }
-  }
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
    
       this.factText = decodeURIComponent(params['text']); 
       console.log(this.factText); 
     });
+  }
+  copyToClipboard() {
+    const textArea = document.createElement('textarea');
+    textArea.value = this.factText; 
+    document.body.appendChild(textArea); 
+    textArea.select();
+    document.execCommand('copy'); 
+    document.body.removeChild(textArea); 
+    alert('¡Texto copiado!'); 
+  }
+navigateToHome(){
+    this.router.navigate(['/home']);
   }
 
 }
