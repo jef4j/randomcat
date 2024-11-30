@@ -1,20 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Datos curiosos de gatos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="speech-bubble">
+    <span>I'm in love</span>
+    <ion-icon name="volume-high-outline"></ion-icon>
   </div>
+
+  <div class="image-container" id="click-trigger">
+    <img
+      src="https://i.ytimg.com/vi/yL-Wco3vJ3w/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAH_urV8rKl_sqb3fOrIS4fhKkVQQ"
+      alt="cat"
+      class="profile-image"
+    />
+    <p>¡haz click sobre mi!</p>
+  </div>
+
+  <ion-popover trigger="click-trigger" triggerAction="click" id="cat-popover">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <p>{{ message }} 🐱</p>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+
+
+  <app-button
+    color="warning"
+    expand="block"
+    (onClick)="confirmTranslation()"
+  >
+    ver los hechos e imagenes de gatitos
+  </app-button>
+
 </ion-content>
