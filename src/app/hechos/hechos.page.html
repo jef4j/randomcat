@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Hechos de gatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-searchbar 
+    animated="true" 
+    placeholder="Buscar" 
+    (ionInput)="onSearch($event)">
+  </ion-searchbar>
+
+  <app-cards *ngFor="let fact of filteredCatFacts" 
+    [id]="fact.id" 
+    [texto]="fact.text">
+  </app-cards>
+</ion-content>
