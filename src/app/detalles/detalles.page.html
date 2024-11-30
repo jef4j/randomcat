@@ -8,13 +8,19 @@
   <div class="note-container">
     
 
-    <ion-item>
-      <ion-label position="floating">detalles</ion-label>
-      <ion-textarea></ion-textarea>
-    </ion-item>
+    <ion-item lines="none">
+      <ion-textarea 
+        [value]="factText" 
+        readonly="true" 
+        class="transparent-textarea"
+      ></ion-textarea>
+      <ion-button fill="clear" (click)="copyToClipboard()">
+        <ion-icon name="copy-outline"></ion-icon> 
+      </ion-button>
+    </ion-item>
 
     <div class="action-buttons">
-      <ion-button expand="block" color="warning" (click)="addNote()">Add note</ion-button>
+      <ion-button expand="block" color="warning" (click)="navigateToHome()">go to home</ion-button>
     </div>
   </div>
 </ion-content>
